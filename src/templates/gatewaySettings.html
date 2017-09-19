@@ -1,0 +1,26 @@
+{% from "_includes/forms" import textField, lightswitchField %}
+
+{{ textField({
+    label: 'API key'|t('commerce'),
+    id: 'apiKey',
+    class: 'ltr',
+    name: 'apiKey',
+    value: gateway.apiKey,
+    errors: gateway.getErrors('apiKey')
+}) }}
+
+{{ textField({
+    label: "Locale"|t('commerce'),
+    id: 'locale',
+    class: 'ltr',
+    name: 'locale',
+    value: gateway.locale,
+    errors: gateway.getErrors('locale')
+}) }}
+
+{{ lightswitchField({
+    label: "Test mode?"|t('commerce'),
+    name: 'testMode',
+    on: gateway.testMode,
+    errors: gateway.getErrors('testMode'),
+}) }}
