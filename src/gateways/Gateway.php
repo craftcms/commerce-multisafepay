@@ -16,7 +16,7 @@ use Omnipay\MultiSafepay\RestGateway as OmnipayGateway;
 use yii\base\NotSupportedException;
 
 /**
- * PayPalPro represents PayPalPro gateway
+ * Gateway represents MultiSafePay gateway
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
