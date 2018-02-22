@@ -9,7 +9,6 @@ use craft\commerce\models\Transaction;
 use craft\commerce\omnipay\base\OffsiteGateway;
 use craft\helpers\Json;
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Common\Message\RequestInterface;
 use Omnipay\MultiSafepay\Message\RestRefundRequest;
 use Omnipay\Omnipay;
 use Omnipay\MultiSafepay\RestGateway as OmnipayGateway;
