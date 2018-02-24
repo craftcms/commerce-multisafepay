@@ -54,6 +54,16 @@ class Gateway extends OffsiteGateway
     /**
      * @inheritdoc
      */
+    public function getPaymentTypeOptions(): array
+    {
+        return [
+            'purchase' => Craft::t('commerce', 'Purchase (Authorize and Capture Immediately)')
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getSettingsHtml()
     {
         return Craft::$app->getView()->renderTemplate('commerce-multisafepay/gatewaySettings', ['gateway' => $this]);
@@ -66,6 +76,17 @@ class Gateway extends OffsiteGateway
     {
         parent::populateRequest($request, $paymentForm);
         $request['type'] = 'redirect';
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function rules(): array
+    {
+        $rules = parent::rules();
+        $rules[] = ['paymentType', 'compare', 'compareValue' => 'purchase'];
+
+        return $rules;
     }
 
     // Protected Methods
@@ -97,11 +118,11 @@ class Gateway extends OffsiteGateway
     /**
      * @inheritdoc
      */
-    public function refund(Transaction $transaction, string $reference): RequestResponseInterface
+    public function refund(Transaction $transaction): RequestResponseInterface
     {
 
         $request = $this->createRequest($transaction);
-        $refundRequest = $this->prepareRefundRequest($request, $reference);
+        $refundRequest = $this->prepareRefundRequest($request, $transaction->reference);
 
         // Get the order ID for the successful transaction and use that.
         $responseData = Json::decodeIfJson($transaction->getParent()->response);
