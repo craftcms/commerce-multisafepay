@@ -77,11 +77,11 @@ class Gateway extends OffsiteGateway
         parent::populateRequest($request, $paymentForm);
         $request['type'] = 'redirect';
     }
-    
+
     /**
      * @inheritdoc
      */
-    public function rules(): array
+    public function rules()
     {
         $rules = parent::rules();
         $rules[] = ['paymentType', 'compare', 'compareValue' => 'purchase'];
