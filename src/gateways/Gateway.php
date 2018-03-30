@@ -40,6 +40,11 @@ class Gateway extends OffsiteGateway
      */
     public $locale;
 
+    /**
+     * @var bool Whether cart information should be sent to the payment gateway
+     */
+    public $sendCartInfo;
+
     // Public Methods
     // =========================================================================
 
