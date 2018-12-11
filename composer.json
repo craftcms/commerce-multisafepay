@@ -1,6 +1,6 @@
 {
   "name": "craftcms/commerce-multisafepay",
-  "description": "MultiSafepay payment gateway plugin for Craft Commerce 2",
+  "description": "MultiSafepay integration for Craft Commerce 2",
   "version": "1.0.0.1",
   "type": "craft-plugin",
   "keywords": [
