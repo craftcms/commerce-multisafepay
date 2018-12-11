@@ -37,8 +37,6 @@
   },
   "extra": {
     "name": "MultiSafepay for Craft Commerce",
-    "handle": "commerce-multisafepay",
-    "changelogUrl": "https://raw.githubusercontent.com/craftcms/commerce-multisafepay/master/CHANGELOG.md",
-    "downloadUrl": "https://github.com/craftcms/commerce-multisafepay/archive/master.zip"
+    "handle": "commerce-multisafepay"
   }
 }

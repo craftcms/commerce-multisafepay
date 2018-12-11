@@ -1,9 +1,6 @@
-MultiSafepay payment gateway plugin for Craft Commerce 2
-=======================
+# MultiSafepay for Craft Commerce
 
-This plugin provides [MultiSafepay](https://www.multisafepay.com/) integration for [Craft Commerce](https://craftcommerce.com/).
-
-It provides the MultiSafepay REST gateway.
+This plugin provides a [MultiSafepay](https://www.multisafepay.com/) integration for [Craft Commerce](https://craftcms.com/commerce).
 
 ## Requirements
 
@@ -11,17 +8,26 @@ This plugin requires Craft Commerce 2.0.0-alpha.5 or later.
 
 ## Installation
 
-To install the plugin, follow these instructions.
+You can install this plugin from the Plugin Store or with Composer.
 
-1. Open your terminal and go to your Craft project:
+#### From the Plugin Store
 
-        cd /path/to/project
+Go to the Plugin Store in your project’s Control Panel and search for “MultiSafepay for Craft Commerce”. Then click on the “Install” button in its modal window.
 
-2. Then tell Composer to load the plugin:
+#### With Composer
 
-        composer require craftcms/commerce-multisafepay
+Open your terminal and run the following commands:
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for MultiSafepay.
+```bash
+# go to the project directory
+cd /path/to/my-project.test
+
+# tell Composer to load the plugin
+composer require craftcms/commerce-multisafepay
+
+# tell Craft to install the plugin
+./craft install/plugin commerce-multisafepay
+```
 
 ## Setup
 
