@@ -1,4 +1,4 @@
-{% from "_includes/forms" import textField, lightswitchField %}
+{% from "_includes/forms" import textField, lightswitchField, autosuggestField %}
 
 {{ lightswitchField({
     label: "Should commerce send cart information to gateway when making transactions."|t('commerce'),
@@ -8,21 +8,23 @@
     errors: gateway.getErrors('sendCartInfo'),
 }) }}
 
-{{ textField({
+{{ autosuggestField({
     label: 'API key'|t('commerce'),
     id: 'apiKey',
     class: 'ltr',
     name: 'apiKey',
     value: gateway.apiKey,
+    suggestEnvVars: true,
     errors: gateway.getErrors('apiKey')
 }) }}
 
-{{ textField({
+{{ autosuggestField({
     label: "Locale"|t('commerce'),
     id: 'locale',
     class: 'ltr',
     name: 'locale',
     value: gateway.locale,
+    suggestEnvVars: true,
     errors: gateway.getErrors('locale')
 }) }}
 
