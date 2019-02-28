@@ -103,7 +103,7 @@ class Gateway extends OffsiteGateway
     protected function createGateway(): AbstractGateway
     {
         /** @var OmnipayGateway $gateway */
-        $gateway = Omnipay::create($this->getGatewayClassName());
+        $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
         $gateway->setApiKey($this->apiKey);
         $gateway->setLocale($this->locale);

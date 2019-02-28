@@ -1,5 +1,10 @@
 # Release Notes for MultiSafepay for Craft Commerce
 
+## Unreleased
+
+### Changed
+- Mollie for Craft Commerce now uses Omnipay v3.
+
 ## 1.1.0 - 2019-01-22
 
 ### Changed
