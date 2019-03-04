@@ -1,6 +1,6 @@
 # Release Notes for MultiSafepay for Craft Commerce
 
-## Unreleased
+## 2.0.0 - 2019-03-04
 
 ### Added
 - The API Key and Locale settings can now be set to environment variables.
