@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Added
-- API Key and Locale settings can now be set to environment variables.
+- The API Key and Locale settings can now be set to environment variables.
 
 ### Changed
 - MultiSafepay for Craft Commerce now uses Omnipay v3.
