@@ -6,7 +6,7 @@ This plugin provides a [MultiSafepay](https://www.multisafepay.com/) integration
 
 ## Requirements
 
-This plugin requires Craft 3.1.5 and Craft Commerce 2.0.0 or later.
+This plugin requires Craft 3.6 and Craft Commerce 3.3 or later.
 
 ## Installation
 
@@ -36,4 +36,3 @@ composer require craftcms/commerce-multisafepay
 To add a MultiSafepay payment gateway, go to Commerce → Settings → Gateways, create a new gateway, and set the gateway type to “MultiSafepay REST”.
 
 > **Tip:** The API Key and Locale settings can be set to environment variables. See [Environmental Configuration](https://docs.craftcms.com/v3/config/environments.html) in the Craft docs to learn more about that.
-
