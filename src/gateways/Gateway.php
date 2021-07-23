@@ -22,9 +22,6 @@ use yii\base\NotSupportedException;
  */
 class Gateway extends OffsiteGateway
 {
-    // Properties
-    // =========================================================================
-
     /**
      * @var string
      */
@@ -44,9 +41,6 @@ class Gateway extends OffsiteGateway
      * @var bool Whether cart information should be sent to the payment gateway
      */
     public $sendCartInfo;
-
-    // Public Methods
-    // =========================================================================
 
     /**
      * @inheritdoc
@@ -93,9 +87,6 @@ class Gateway extends OffsiteGateway
 
         return $rules;
     }
-
-    // Protected Methods
-    // =========================================================================
 
     /**
      * @inheritdoc
