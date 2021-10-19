@@ -19,28 +19,30 @@ use yii\base\NotSupportedException;
  *
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
+ *
+ * @property-read null|string $settingsHtml
  */
 class Gateway extends OffsiteGateway
 {
     /**
-     * @var string
+     * @var string|null
      */
-    public $apiKey;
+    public ?string $apiKey = null;
 
     /**
      * @var bool
      */
-    public $testMode = false;
+    public bool $testMode = false;
 
     /**
-     * @var string
+     * @var string|null
      */
-    public $locale;
+    public ?string $locale = null;
 
     /**
      * @var bool Whether cart information should be sent to the payment gateway
      */
-    public $sendCartInfo;
+    public bool $sendCartInfo = false;
 
     /**
      * @inheritdoc
@@ -63,7 +65,7 @@ class Gateway extends OffsiteGateway
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('commerce-multisafepay/gatewaySettings', ['gateway' => $this]);
     }
@@ -71,16 +73,16 @@ class Gateway extends OffsiteGateway
     /**
      * @inheritdoc
      */
-    public function populateRequest(array &$request, BasePaymentForm $paymentForm = null)
+    public function populateRequest(array &$request, BasePaymentForm $form = null): void
     {
-        parent::populateRequest($request, $paymentForm);
+        parent::populateRequest($request, $form);
         $request['type'] = 'redirect';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
         $rules[] = ['paymentType', 'compare', 'compareValue' => 'purchase'];
@@ -106,7 +108,7 @@ class Gateway extends OffsiteGateway
     /**
      * @inheritdoc
      */
-    protected function getGatewayClassName()
+    protected function getGatewayClassName(): ?string
     {
         return '\\'.OmnipayGateway::class;
     }

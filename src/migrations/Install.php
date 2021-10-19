@@ -11,6 +11,7 @@ use Craft;
 use craft\commerce\multisafepay\gateways\Gateway;
 use craft\db\Migration;
 use craft\db\Query;
+use yii\db\Exception;
 
 /**
  * Installation Migration
@@ -23,7 +24,7 @@ class Install extends Migration
     /**
      * @inheritdoc
      */
-    public function safeUp()
+    public function safeUp(): bool
     {
         // Convert any built-in MSP gateways to ours
         $this->_convertGateways();
@@ -34,7 +35,7 @@ class Install extends Migration
     /**
      * @inheritdoc
      */
-    public function safeDown()
+    public function safeDown(): bool
     {
         return true;
     }
@@ -43,8 +44,9 @@ class Install extends Migration
      * Converts any old school MultiSafePay gateways to this one
      *
      * @return void
+     * @throws Exception
      */
-    private function _convertGateways()
+    private function _convertGateways(): void
     {
         $gateways = (new Query())
             ->select(['id'])
