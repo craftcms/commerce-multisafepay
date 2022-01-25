@@ -97,8 +97,8 @@ class Gateway extends OffsiteGateway
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
         $gateway->setApiKey(Craft::parseEnv($this->apiKey));
-        $gateway->setLocale(Craft::parseEnv($this->locale));
-        $gateway->setTestMode( (Craft::parseEnv('MULTISAFEPAY_TEST_MODE') === "true") || $this->testMode );
+        $gateway->setLocale(Craft::parseEnv($this->locale));        
+        $gateway->setTestMode( Craft::parseBooleanEnv('$MULTISAFEPAY_TEST_MODE') || $this->testMode );
 
         return $gateway;
 

@@ -31,6 +31,6 @@
 {{ lightswitchField({
   label: "Test mode?"|t('commerce'),
   name: 'testMode',
-  on: gateway.testMode,
+  on: parseBooleanEnv('$MULTISAFEPAY_TEST_MODE') or gateway.testMode,
   errors: gateway.getErrors('testMode'),
 }) }}
