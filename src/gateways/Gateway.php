@@ -98,9 +98,10 @@ class Gateway extends OffsiteGateway
 
         $gateway->setApiKey(Craft::parseEnv($this->apiKey));
         $gateway->setLocale(Craft::parseEnv($this->locale));
-        $gateway->setTestMode($this->testMode);
+        $gateway->setTestMode( (Craft::parseEnv('MULTISAFEPAY_TEST_MODE') === "true") || $this->testMode );
 
         return $gateway;
+
     }
 
     /**
