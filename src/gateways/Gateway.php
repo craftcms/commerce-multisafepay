@@ -47,6 +47,7 @@ class Gateway extends OffsiteGateway
      */
     public static function displayName(): string
     {
+        $foo = 'bar'
         return Craft::t('commerce', 'MultiSafepay REST');
     }
 
