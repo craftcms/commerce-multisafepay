@@ -38,5 +38,22 @@
   "extra": {
     "name": "MultiSafepay for Craft Commerce",
     "handle": "commerce-multisafepay"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
+  },
+  "scripts": {
+    "phpstan": "phpstan --memory-limit=1G",
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix"
+  },
+  "require-dev": {
+    "craftcms/phpstan": "dev-main",
+    "craftcms/ecs": "dev-main"
   }
 }

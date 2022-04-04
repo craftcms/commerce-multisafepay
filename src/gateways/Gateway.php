@@ -10,7 +10,6 @@ use craft\commerce\omnipay\base\OffsiteGateway;
 use craft\helpers\Json;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\MultiSafepay\Message\RestRefundRequest;
-use Omnipay\Omnipay;
 use Omnipay\MultiSafepay\RestGateway as OmnipayGateway;
 use yii\base\NotSupportedException;
 
@@ -58,7 +57,7 @@ class Gateway extends OffsiteGateway
     public function getPaymentTypeOptions(): array
     {
         return [
-            'purchase' => Craft::t('commerce', 'Purchase (Authorize and Capture Immediately)')
+            'purchase' => Craft::t('commerce', 'Purchase (Authorize and Capture Immediately)'),
         ];
     }
 
@@ -110,7 +109,7 @@ class Gateway extends OffsiteGateway
      */
     protected function getGatewayClassName(): ?string
     {
-        return '\\'.OmnipayGateway::class;
+        return '\\' . OmnipayGateway::class;
     }
 
     /**
@@ -118,7 +117,6 @@ class Gateway extends OffsiteGateway
      */
     public function refund(Transaction $transaction): RequestResponseInterface
     {
-
         $request = $this->createRequest($transaction);
         $refundRequest = $this->prepareRefundRequest($request, $transaction->reference);
 
