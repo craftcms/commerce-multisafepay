@@ -25,9 +25,9 @@
     "rss": "https://github.com/craftcms/commerce-multisafepay/commits/master.atom"
   },
   "require": {
-    "craftcms/cms": "^4.0",
-    "craftcms/commerce": "^4.0",
-    "craftcms/commerce-omnipay": "^4.0",
+    "craftcms/cms": "^4.0.0-beta.2",
+    "craftcms/commerce": "^4.0.x-dev",
+    "craftcms/commerce-omnipay": "dev-commerce4",
     "omnipay/multisafepay": "~3.0"
   },
   "autoload": {
