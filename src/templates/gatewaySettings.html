@@ -1,10 +1,11 @@
-{% from "_includes/forms" import textField, lightswitchField, autosuggestField %}
+{% from "_includes/forms" import lightswitchField, autosuggestField, booleanMenuField %}
 
-{{ lightswitchField({
+{{ booleanMenuField({
   label: "Should commerce send cart information to gateway when making transactions."|t('commerce'),
   id: 'sendCartInfo',
   name: 'sendCartInfo',
-  on: gateway.sendCartInfo,
+  value: gateway.getSendCartInfo(false),
+  includeEnvVars: true,
   errors: gateway.getErrors('sendCartInfo'),
 }) }}
 
@@ -13,7 +14,7 @@
   id: 'apiKey',
   class: 'ltr',
   name: 'apiKey',
-  value: gateway.apiKey,
+  value: gateway.getApiKey(false),
   suggestEnvVars: true,
   errors: gateway.getErrors('apiKey')
 }) }}
@@ -23,14 +24,15 @@
   id: 'locale',
   class: 'ltr',
   name: 'locale',
-  value: gateway.locale,
+  value: gateway.getLocale(false),
   suggestEnvVars: true,
   errors: gateway.getErrors('locale')
 }) }}
 
-{{ lightswitchField({
+{{ booleanMenuField({
   label: "Test mode?"|t('commerce'),
   name: 'testMode',
-  on: gateway.testMode,
+  value: gateway.getTestMode(false),
+  includeEnvVars:true,
   errors: gateway.getErrors('testMode'),
 }) }}

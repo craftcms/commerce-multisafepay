@@ -7,6 +7,7 @@ use craft\commerce\base\RequestResponseInterface;
 use craft\commerce\models\payments\BasePaymentForm;
 use craft\commerce\models\Transaction;
 use craft\commerce\omnipay\base\OffsiteGateway;
+use craft\helpers\App;
 use craft\helpers\Json;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\MultiSafepay\Message\RestRefundRequest;
@@ -19,6 +20,9 @@ use yii\base\NotSupportedException;
  * @author    Pixel & Tonic, Inc. <support@pixelandtonic.com>
  * @since     1.0
  *
+ * @property bool $testMode
+ * @property string $apiKey
+ * @property string $locale
  * @property-read null|string $settingsHtml
  */
 class Gateway extends OffsiteGateway
@@ -26,22 +30,17 @@ class Gateway extends OffsiteGateway
     /**
      * @var string|null
      */
-    public ?string $apiKey = null;
+    private ?string $_apiKey = null;
 
     /**
-     * @var bool
+     * @var bool|string
      */
-    public bool $testMode = false;
+    private bool|string $_testMode = false;
 
     /**
      * @var string|null
      */
-    public ?string $locale = null;
-
-    /**
-     * @var bool Whether cart information should be sent to the payment gateway
-     */
-    public bool $sendCartInfo = false;
+    private ?string $_locale = null;
 
     /**
      * @inheritdoc
@@ -49,6 +48,79 @@ class Gateway extends OffsiteGateway
     public static function displayName(): string
     {
         return Craft::t('commerce', 'MultiSafepay REST');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSettings(): array
+    {
+        $settings = parent::getSettings();
+        $settings['apiKey'] = $this->getApiKey(false);
+        $settings['testMode'] = $this->getTestMode(false);
+        $settings['locale'] = $this->getLocale(false);
+
+        return $settings;
+    }
+
+    /**
+     * @param bool $parse
+     * @return bool|string
+     * @since 4.0.0
+     */
+    public function getTestMode(bool $parse = true): bool|string
+    {
+        return $parse ? App::parseBooleanEnv($this->_testMode) : $this->_testMode;
+    }
+
+    /**
+     * @param bool|string $testMode
+     * @return void
+     * @since 4.0.0
+     */
+    public function setTestMode(bool|string $testMode): void
+    {
+        $this->_testMode = $testMode;
+    }
+
+    /**
+     * @param bool $parse
+     * @return string|null
+     * @since 4.0.0
+     */
+    public function getApiKey(bool $parse = true): ?string
+    {
+        return $parse ? App::parseEnv($this->_apiKey) : $this->_apiKey;
+    }
+
+    /**
+     * @param string|null $apiKey
+     * @return void
+     * @since 4.0.0
+     */
+    public function setApiKey(?string $apiKey): void
+    {
+        $this->_apiKey = $apiKey;
+    }
+
+    /**
+     * @param bool $parse
+     * @return string|null
+     * @since 4.0.0
+     */
+    public function getLocale(bool $parse = true): ?string
+    {
+        return $parse ? App::parseEnv($this->_locale) : $this->_locale;
+    }
+
+    /**
+     * @param string|null $locale
+     * @return void
+     * @since 4.0.0
+     */
+    public function setLocale(?string $locale): void
+    {
+        $this->_locale = $locale;
     }
 
     /**
@@ -97,9 +169,9 @@ class Gateway extends OffsiteGateway
         /** @var OmnipayGateway $gateway */
         $gateway = static::createOmnipayGateway($this->getGatewayClassName());
 
-        $gateway->setApiKey(Craft::parseEnv($this->apiKey));
-        $gateway->setLocale(Craft::parseEnv($this->locale));
-        $gateway->setTestMode($this->testMode);
+        $gateway->setApiKey($this->getApiKey());
+        $gateway->setLocale($this->getLocale());
+        $gateway->setTestMode($this->getTestMode());
 
         return $gateway;
     }
