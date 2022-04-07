@@ -1,7 +1,6 @@
 {
   "name": "craftcms/commerce-multisafepay",
   "description": "MultiSafepay integration for Craft Commerce 4.0+",
-  "version": "4.0.0",
   "type": "craft-plugin",
   "keywords": [
     "multisafepay",
@@ -26,8 +25,8 @@
   },
   "require": {
     "craftcms/cms": "^4.0.0-beta.2",
-    "craftcms/commerce": "^4.0.x-dev",
-    "craftcms/commerce-omnipay": "dev-commerce4",
+    "craftcms/commerce": "^4.0.0-beta.2",
+    "craftcms/commerce-omnipay": "^4.0.0-beta.2",
     "omnipay/multisafepay": "~3.0"
   },
   "autoload": {
