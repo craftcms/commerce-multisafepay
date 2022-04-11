@@ -1,6 +1,6 @@
 # Release Notes for MultiSafepay for Craft Commerce
 
-## Unreleased
+## 4.0.0-beta.1 - 2022-04-11
 
 ### Added
 - Added Craft CMS 4 and Craft Commerce 4 compatibility.
