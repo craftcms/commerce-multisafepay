@@ -1,7 +1,6 @@
 {
   "name": "craftcms/commerce-multisafepay",
-  "description": "MultiSafepay integration for Craft Commerce 3.3+",
-  "version": "3.0.0",
+  "description": "MultiSafepay integration for Craft Commerce 4.0+",
   "type": "craft-plugin",
   "keywords": [
     "multisafepay",
@@ -25,9 +24,10 @@
     "rss": "https://github.com/craftcms/commerce-multisafepay/commits/master.atom"
   },
   "require": {
-    "craftcms/cms": "^3.6",
-    "craftcms/commerce": "^3.3",
-    "craftcms/commerce-omnipay": "^3.0",
+    "php": "^8.0.2",
+    "craftcms/cms": "^4.0.0-RC3",
+    "craftcms/commerce": "^4.0.0-RC1",
+    "craftcms/commerce-omnipay": "^4.0.0-RC1",
     "omnipay/multisafepay": "~3.0"
   },
   "autoload": {
@@ -45,6 +45,9 @@
     "allow-plugins": {
       "yiisoft/yii2-composer": true,
       "craftcms/plugin-installer": true
+    },
+    "platform": {
+      "php": "8.0.2"
     }
   },
   "scripts": {
