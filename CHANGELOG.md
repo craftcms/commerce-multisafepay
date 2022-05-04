@@ -1,5 +1,10 @@
 # Release Notes for MultiSafepay for Craft Commerce
 
+## 4.0.0-RC1 - 2022-05-04
+
+### Changed
+- MultiSafepay for Craft Commerce now requires Craft Commerce 4.0.0-RC1 or later.
+
 ## 4.0.0-beta.1 - 2022-04-11
 
 ### Added
