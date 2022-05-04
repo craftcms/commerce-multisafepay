@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://craftcms.com/
+ * @copyright Copyright (c) Pixel & Tonic, Inc.
+ * @license MIT
+ */
 
 namespace craft\commerce\multisafepay;
 
@@ -6,7 +11,6 @@ use craft\commerce\multisafepay\gateways\Gateway;
 use craft\commerce\services\Gateways;
 use craft\events\RegisterComponentTypesEvent;
 use yii\base\Event;
-
 
 /**
  * Plugin represents the MultiSafepay integration plugin.
@@ -19,7 +23,7 @@ class Plugin extends \craft\base\Plugin
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
