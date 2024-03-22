@@ -25,8 +25,8 @@
   },
   "require": {
     "php": "^8.0.2",
-    "craftcms/cms": "^4.0.0-RC3",
-    "craftcms/commerce": "^4.0.0-RC1",
+    "craftcms/cms": "^4.0.0-RC3|^5.0.0-beta.10",
+    "craftcms/commerce": "^4.0.0-RC1|^5.0.0-beta.1",
     "craftcms/commerce-omnipay": "^4.0.0-RC1",
     "omnipay/multisafepay": "~3.0"
   },
@@ -46,9 +46,6 @@
       "yiisoft/yii2-composer": true,
       "craftcms/plugin-installer": true,
       "php-http/discovery": true
-    },
-    "platform": {
-      "php": "8.0.2"
     }
   },
   "scripts": {
@@ -58,6 +55,7 @@
   },
   "require-dev": {
     "craftcms/phpstan": "dev-main",
-    "craftcms/ecs": "dev-main"
+    "craftcms/ecs": "dev-main",
+    "craftcms/rector": "dev-main"
   }
 }
