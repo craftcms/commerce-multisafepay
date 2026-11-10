@@ -1,5 +1,18 @@
 # Release Notes for MultiSafepay for Craft Commerce
 
+## Unreleased
+
+> [!WARNING]
+> This release requires Craft Commerce 6. See [UPGRADE.md](UPGRADE.md) for the breaking changes.
+
+- MultiSafepay for Craft Commerce now requires Craft CMS 6, Craft Commerce 6 and PHP 8.5.
+- The plugin now uses the MultiSafepay JSON API directly, and no longer requires `craftcms/commerce-omnipay` or `omnipay/multisafepay`.
+- Moved all classes to the `CraftCms\CommerceMultiSafepay` namespace. `craft\commerce\multisafepay\gateways\Gateway` is kept as an alias of `CraftCms\CommerceMultiSafepay\Gateway`.
+- Added `CraftCms\CommerceMultiSafepay\Events\PaymentRequestBuilding`, which replaces the Omnipay request events.
+- The gateway now supports webhooks. MultiSafepay sends signed `POST` notifications, and the plugin records the order status it fetches from MultiSafepay.
+- Bank transfers that are awaiting payment, and card payments held for review (“uncleared”), now complete the order as processing payments instead of failing.
+- Failed payments now show a message saying whether the payment was declined, canceled or expired.
+
 ## 4.1.0 - 2024-03-22
 
 - Added Craft CMS 5 and Craft Commerce 5 compatibility.
